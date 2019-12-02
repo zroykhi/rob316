@@ -6,6 +6,15 @@ function [ u ] = BicycleToPathControl( xTrue, Path )
 %   u is the control : [v phi]'
 
 % TODO
+%Q4
+Kp = 15;
+Ka = 15;
+dist = sqrt((xTrue(1) - (1))^2 + (xTrue(2) - (2))^2);
+apha = atan2(xGoal(2)-xTrue(2), xGoal(1)-xTrue(1)) - xTrue(3);
+apha = AngleWrap(apha);
+v = Kp*dist;
+omega = Ka*apha;   
+u = [v; omega];
 
 end
 
