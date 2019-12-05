@@ -13,7 +13,7 @@ num_lines = length(Path) - 1;
 num_points = length(Path);
 step = 1;
 dist_thredhold = 0.5;
-turning_r = 0.3
+turning_r = 0.3;
 
 current_phrase = 1; 
 
@@ -28,14 +28,17 @@ for i=1:num_points
 end
 
 if closest_point_idx == 3
-    turning_r = 0.8;
-    Ka = 25;
+    turning_r = 0.6;
+    Ka = 50;
+    Kp = 4;
 elseif closest_point_idx == 4
-    Ka = 20;
+    Ka = 15;
+    Kp = 3;
     turning_r = 0.4
 elseif closest_point_idx == 5
-    Ka = 22;
-    turning_r = 0.7    
+    Ka = 18;
+    Kp = 15;
+    turning_r = 0.45;    
 end    
 
 if closest_point_idx == 1
@@ -67,12 +70,10 @@ else
             % s = (x1y2-x1y3+x2y3-x2y1+x3y1-x3y2)
             s = Path(1,i)*Path(2,i+1) - Path(1,i)*xTrue(2) + Path(1,i+1)*xTrue(2) - Path(1,i+1)*Path(2,i)+xTrue(1)*Path(2,i)-xTrue(1)*Path(2,i+1);
             vector = Path(1:2,i+1) - Path(1:2,i);
-            i
-            error
-            d = abs(s) / sqrt(vector' * vector)
+            d = abs(s) / sqrt(vector' * vector);
             if abs(d - error) < diff_err
                 diff_err = abs(d - error);
-                current_phrase = i
+                current_phrase = i;
             end
         end        
     end
