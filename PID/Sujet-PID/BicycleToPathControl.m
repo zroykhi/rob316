@@ -15,43 +15,27 @@ step = 1;
 dist_thredhold = 0.5;
 turning_r = 0.3
 
-max_degree = 0;
-current_phrase = 1;
-% for i=1:num_lines
-%     v1 = Path(1:2,i+1)-xTrue(1:2,1);
-%     v2 = Path(1:2,i)-xTrue(1:2,1);
-%     degree1 = atan2(v1(2), v1(1));
-%     degree2 = atan2(v2(2), v2(1));
-%     degree = abs(degree1-degree2);
-%     if degree>max_degree
-%         max_degree = degree;
-%         current_phrase = i;
-%     end
-% end
-
-% min_dist = 100;
-% for i=1:num_lines
-%     v = Path(1:2,i+1) - Path(1:2,i)
-%     xTrue
-%     d = abs(xTrue(1) * v(1)+xTrue(2)*v(2)) / sqrt(v' * v)
-%     if d<min_dist
-%         current_phrase = i;
-%     end
-% end    
+current_phrase = 1; 
 
 closest_point_idx =1;
-min_dist = 100;
+min_dist_robot_2_vertice = 100;
 for i=1:num_points
     d = norm(Path(1:2,i) - xTrue(1:2,1));
-    if d < min_dist
-        min_dist = d;
+    if d < min_dist_robot_2_vertice
+        min_dist_robot_2_vertice = d;
         closest_point_idx = i;
     end
 end
 
 if closest_point_idx == 3
-    turning_r = 0.5;
+    turning_r = 0.8;
     Ka = 25;
+elseif closest_point_idx == 4
+    Ka = 20;
+    turning_r = 0.4
+elseif closest_point_idx == 5
+    Ka = 22;
+    turning_r = 0.7    
 end    
 
 if closest_point_idx == 1
@@ -59,7 +43,7 @@ if closest_point_idx == 1
 elseif closest_point_idx == 6
     current_phrase = 5;
 elseif closest_point_idx == 4
-    if min_dist < turning_r
+    if min_dist_robot_2_vertice < turning_r
         current_phrase = closest_point_idx;
     else
         error=abs(p_poly_dist(xTrue(1),xTrue(2),Path(1,:),Path(2,:)));
@@ -69,16 +53,14 @@ elseif closest_point_idx == 4
             vector = Path(1:2,i+1) - Path(1:2,i);
             d = abs(s) / sqrt(vector' * vector);
             if abs(d - error) < 0.0001
-            % if d == error
                 current_phrase = i;
             end
         end
     end
 else
-    if min_dist < turning_r
+    if min_dist_robot_2_vertice < turning_r
         current_phrase = closest_point_idx;
     else
-        min_dist_to_line = 100;
         diff_err = 100;
         error=abs(p_poly_dist(xTrue(1),xTrue(2),Path(1,:),Path(2,:)));
         for i=1:5
@@ -125,6 +107,10 @@ v = Kp*dist_robot_to_goal;
 phi = Ka*apha;
 current_phrase;
 u = [v phi];
+
+if min_dist_robot_2_vertice < 0.05 && closest_point_idx == 6
+    u = [0 0];
+end    
 
 end
 
