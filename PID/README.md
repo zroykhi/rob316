@@ -57,8 +57,15 @@ Le problème est plus compliqué car le robot doit faire une manœuvre pour arri
 ![](images/q3.png)
 
 #### **Question 4**
-Le chemin est un peu compliqué. Il a différents angles de braquage à différents coins. À une certaine position, le robot doit tourner rapidement comme dans le coin supérieur droit. Nous ajustons donc les paramètres pendant que le robot suit le chemin. Et nous avons obtenu une **erreur moyenne de 355** à la fin, ce qui est assez petit.
+Le chemin est un peu compliqué. Il a différents angles de braquage à différents coins. Nous ajustons donc les paramètres pendant que le robot suit le chemin. Le paramètre `corner radius` indique la distance à laquelle le robot réagit à l'avance. Plus l'angle change rapidement, plus le robot réagit à l'avance. À une certaine position, le robot doit tourner rapidement comme dans le coin supérieur droit(Point B). Nous augmentons donc le paramètre `K_alpha`, de sorte que le robot change de direction plus rapidement, tandis que nous augmentons également le paramètre `K_rho`, ce qui accélère le robot. Et nous avons obtenu une **erreur moyenne de 355** à la fin, ce qui est assez petit.
 
-![](https://markdown.data-ensta.fr/uploads/upload_fb885fcf939f0b3a07af15416d176e06.png)
+| Point | `K_rho`  | `K_alpha` | corner radius|
+| :---------: |:---------:| :---------:| :-----:|
+|  A | 10 |5|0.3|
+|  B | 50 |90|0.5|
+|  C | 3 |15|0.4|
+|  D | 15 |18|0.45|
+
+![](images/q4.png)
 
 
