@@ -5,9 +5,9 @@ function [ u ] = UnicycleToPoseControl( xTrue,xGoal )
 %   u is the control : [v omega]'
 
 % TODO
-Kp = 20;
-Ka = 11; % 11
-Kb = 10; % 10
+Kp = 20.7;
+Ka = 6.9; 
+Kb = 22.7; 
 aMax = pi*90/180;
 dist = sqrt((xTrue(1) - xGoal(1))^2 + (xTrue(2) - xGoal(2))^2);
 diffAng = atan2(xGoal(2)-xTrue(2), xGoal(1)-xTrue(1)) - xTrue(3);
