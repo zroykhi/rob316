@@ -33,7 +33,7 @@ Les scores sont ceux du benchmark fourni dans le dossier TP (Mean Goal Reaching 
 | :---------: |:---------:| :-----:| :-----:|
 |  20,7 | 6,9 | 22,7 |3182,7|
 
-![](https://markdown.data-ensta.fr/uploads/upload_e128edf1c60bb7365ac52c850d2cd88f.png)
+![](https://markdown.data-ensta.fr/uploads/upload_e128edf1c60bb7365ac52c850d2cd88f.png =380x)
 
 
 2. **Question 2**
@@ -42,12 +42,12 @@ Les scores sont ceux du benchmark fourni dans le dossier TP (Mean Goal Reaching 
 | :---------: |:---------:| :-----:|
 |  70.2 | 4.44 |1840|
 
-![](https://markdown.data-ensta.fr/uploads/upload_c6ce2b9b92563f76e752f79ccb75d25f.png)
+![](https://markdown.data-ensta.fr/uploads/upload_c6ce2b9b92563f76e752f79ccb75d25f.png =380x)
 
 
 3. **Question 3** : Le problème est plus compliqué car le robot doit faire une manœuvre pour arriver à la position désirée. Nous faisons comme dans la question 1 un disjonction de cas selon la distance (une voiture ne se gare pas avec les même précautions qu'elle ne se rend au parking)
 
 4. **Question 4**
-![](https://markdown.data-ensta.fr/uploads/upload_fb885fcf939f0b3a07af15416d176e06.png)
+![](https://markdown.data-ensta.fr/uploads/upload_fb885fcf939f0b3a07af15416d176e06.png =380x)
 
 
