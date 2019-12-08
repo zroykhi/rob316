@@ -26,8 +26,9 @@ et simulons les missions grâce aux fichiers fournis. Nous réglons les gains `K
 Résultats
 ----
 Les scores sont ceux du benchmark fourni dans le dossier TP (Mean Goal Reaching Time)
-1. **Question 1** : Nous réglons les gains *à tâtons* avec la méthode de Ziegler-Nichols
+#### **Question 1** 
 
+Nous réglons les gains *à tâtons* avec la méthode de Ziegler-Nichols
 
 | `K_rho`  | `K_alpha` | `k_beta` | Score|
 | :---------: |:---------:| :-----:| :-----:|
@@ -36,18 +37,28 @@ Les scores sont ceux du benchmark fourni dans le dossier TP (Mean Goal Reaching 
 ![](https://markdown.data-ensta.fr/uploads/upload_e128edf1c60bb7365ac52c850d2cd88f.png)
 
 
-2. **Question 2**
+#### **Question 2**
 
 | `K_rho`  | `K_alpha` | Score|
 | :---------: |:---------:| :-----:|
-|  70.2 | 4.44 |1840|
+|  25 | 15 |1374|
 
 ![](https://markdown.data-ensta.fr/uploads/upload_c6ce2b9b92563f76e752f79ccb75d25f.png)
 
 
-3. **Question 3** : Le problème est plus compliqué car le robot doit faire une manœuvre pour arriver à la position désirée. Nous faisons comme dans la question 1 un disjonction de cas selon la distance (une voiture ne se gare pas avec les même précautions qu'elle ne se rend au parking)
+#### **Question 3** 
 
-4. **Question 4**
+Le problème est plus compliqué car le robot doit faire une manœuvre pour arriver à la position désirée. Nous faisons comme dans la question 1 un disjonction de cas selon la distance (une voiture ne se gare pas avec les même précautions qu'elle ne se rend au parking)
+
+| `K_rho`  | `K_alpha` | `K_beta` | Score|
+| :---------: |:---------:| :---------:| :-----:|
+|  60 | 14 |-8|1627|
+
+![](images/q3.png)
+
+#### **Question 4**
+Le chemin est un peu compliqué. Il a différents angles de braquage à différents coins. À une certaine position, le robot doit tourner rapidement comme dans le coin supérieur droit. Nous ajustons donc les paramètres pendant que le robot suit le chemin. Et nous avons obtenu une **erreur moyenne de 355** à la fin, ce qui est assez petit.
+
 ![](https://markdown.data-ensta.fr/uploads/upload_fb885fcf939f0b3a07af15416d176e06.png)
 
 

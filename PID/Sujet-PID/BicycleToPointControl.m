@@ -9,7 +9,6 @@ function [ u ] = BicycleToPointControl( xTrue,xGoal )
 %Q2 mean time: 1374
 Kp = 25;
 Ka = 15;
-aMax = pi*240/180;
 dist = sqrt((xTrue(1) - xGoal(1))^2 + (xTrue(2) - xGoal(2))^2);
 diffAng = atan2(xGoal(2)-xTrue(2), xGoal(1)-xTrue(1)) - xTrue(3);
 diffAng = AngleWrap(diffAng);
