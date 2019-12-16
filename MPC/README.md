@@ -42,20 +42,20 @@ Nous constatons un problème dans la définition de l'erreur pour le suivi de tr
 
 Dans cette question nous étudions la stabilité pour le système défini par les équations
 
-$$\dot{x}_{1}=x_{2}+u\left(\mu+(1-\mu) x_{1}\right) \quad \dot{x}_{2}=x_{1}+u\left(\mu-4(1-\mu) x_{2}\right).$$
+`$\dot{x}_{1}=x_{2}+u\left(\mu+(1-\mu) x_{1}\right) \quad \dot{x}_{2}=x_{1}+u\left(\mu-4(1-\mu) x_{2}\right).$`
 
 Nous écrivons les matrices jacobiennes pour linéariser le système
 
-$$A=\left[\frac{\partial \dot{x}_{i}}{\partial x_{j}}\right]=\left[\begin{array}{cc}{u(1-\mu)} & {1} \\ {1} & {-4 u(1-\mu)}\end{array}\right]$$
+`$A=\left[\frac{\partial \dot{x}_{i}}{\partial x_{j}}\right]=\left[\begin{array}{cc}{u(1-\mu)} & {1} \\ {1} & {-4 u(1-\mu)}\end{array}\right]$`
 
 
-$$B = \left[
+`$B = \left[
 \frac{\partial \dot{x}_{i}}{\partial u}
 \right]
 = \begin{bmatrix}
 \mu + (1-\mu)x_{1}\\ 
 \mu - 4(1-\mu)x_{2}
-\end{bmatrix}$$
+\end{bmatrix}$`
 
 que nous implémentons dans `verif_stability.m`. 
 + L'utilisation de la fonction `care` permet de retourner la solution de l'équation de Riccati :
@@ -65,8 +65,8 @@ que nous implémentons dans `verif_stability.m`.
  ```
  et ainsi trouver une relation localement stabilisante $u=Kx$ pour le contrôle par retour d'état.
 + L'équation du système avec rebouclage est donnée par $A_{K}=A+B K$ et nous l'implémentons de cette même manière dans le script.
-+ Avec `lambda=max(eigs(Ak))` nous obtenons la plus grande valeur propre et elle correspond effectivement à celle de l'article : $\lambda_{\max }\left(A_{K}\right)=-1.0$. 
-+ Nous choisissons avec ce $\lambda$ une valeur de $\alpha$ qui servira pour la résolution de l'équation de Lyapunov :
++ Avec `lambda=max(eigs(Ak))` nous obtenons la plus grande valeur propre et elle correspond effectivement à celle de l'article : `$\lambda_{\max }\left(A_{K}\right)=-1.0$`. 
++ Nous choisissons avec ce `$\lambda$` une valeur de `$\alpha$` qui servira pour la résolution de l'équation de Lyapunov :
 ```
   Al=(Ak+[alpha, 0;0, alpha])';
   Bl=(Q+K'*R*K);
