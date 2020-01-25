@@ -1,0 +1,23 @@
+(define (problem hanoi-1)
+(:domain hanoi)
+(:objects peg1 peg2 peg3 d1 )
+(:init
+    (peg peg1)
+    (peg peg2)
+    (peg peg3)
+    (disc d1)
+    (emptyPince)
+    (smaller peg1 d1)
+    (smaller peg2 d1)
+    (smaller peg3 d1)
+    (vide peg2)
+    (vide peg3)
+    (clear d1)
+    (on d1 peg1)
+)
+(:goal
+    (and 
+    (on d1 peg3)
+    )
+)
+)
